@@ -210,4 +210,4 @@ For example, if an application contains the following trhee variables:
 - Name: `vSales`, Definition: `=Sum(Sales)`
 - Name: `vProfit`, Definition: `$(vSales) - $(vCost)`
 
-`vProfit` will be associated with the fields `"Cost" and `"Sales"`, along with any asset that uses that variable (e.g. if an Object uses `vProfit`, it will also be associated with those fields.)
+`vProfit` will be associated with the fields `"Cost"` and `"Sales"`, along with any asset that uses that variable (e.g. if an Object uses `vProfit`, it will also be associated with those fields.)
