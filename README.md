@@ -7,6 +7,7 @@
   * [What is it](#what-is-it)
   * [What makes this different from other tools or products](#what-makes-this-different-from-other-tools-or-products)
   * [When is this automation not a fit](#when-is-this-automation-not-a-fit)
+  * [Video Overview and Demo](#video-overview-and-demo)
 - [Screenshots](#screenshots)
   * [Generated App](#generated-app)
   * [Automation Output](#automation-output)
@@ -37,6 +38,9 @@ A Qlik Application Automation template and programmatically generated app for Ql
 
 ### When is this automation not a fit
 - If the goal is to optimize the objects and/or the fields/expressions themselves, this is not the utility to do so as it does not "exercise" the objects nor does it provide recommendations to optimize the fields. The [App Evaluator](https://community.qlik.com/t5/Qlik-Product-Innovation-Blog/Manage-performance-with-the-new-Application-Evaluator-available/ba-p/1799878) which is native to Qlik Cloud can assist with identifying poorly performing objects, and other third-party document analyzers offer more prescriptive approaches to field optimization.
+
+### Video Overview and Demo
+[![Field Usage Overview Youtube](/images/youtube_screen.png)](https://www.youtube.com/watch?v=xS7KmAjboWk)
 
 ## Screenshots
 ### Generated App
