@@ -27,9 +27,9 @@
 
 ## About
 ### What is it
-A Qlik Application Automation template and programmatically generated app for Qlik Cloud that exposes field usage and allows for impact analysis. In short, this application allows the user to quickly identify and drop unused fields in an application, as well as perform impact analysis for Fields, Variables, and Master Items. 
+A Qlik Application Automation template and programmatically generated app for Qlik Sense apps in Qlik Cloud that exposes field usage and allows for impact analysis. In short, this application allows the user to quickly identify and drop unused fields in a Qlik Sense application, as well as perform impact analysis for Fields, Variables, and Master Items. 
 
-> _Keep your apps slim and performant, and gain an understanding of where and how fields are used._
+> _Keep your Qlik Sense apps slim and performant, and gain an understanding of where and how fields are used._
 
 ### What makes this different from other tools or products
 - This automation is completely native to Qlik Cloud, and has zero footprint (i.e. it requires no additional hardware or external code/programs)
@@ -117,7 +117,7 @@ Ultimately, all that needs to be done to configure this automation is to import 
 
 ![](/images/run1.png)
 
-3. A number of user inputs will appear, however the only required input is **AppId to Scan**, which is the AppId of the application that it should scan. If only that input is entered and submitted, the automation will just output the results directly on the output screen. This is helpful if the user only wants the DROP FIELDS statement generated for that application and does not care about any additional analysis that could be done in a generated Qlik application.
+3. A number of user inputs will appear, however the only required input is **AppId to Scan**, which is the AppId of the Qlik Sense application that it should scan. If only that input is entered and submitted, the automation will just output the results directly on the output screen. This is helpful if the user only wants the DROP FIELDS statement generated for that Qlik Sense application and does not care about any additional analysis that could be done in a generated Qlik Sense application.
 3a. The additional inputs are shown and documented below (directly in the automation) and provide the user the ability to generate an output application (integral for impact analysis), as well as to control what types of sheets are scanned (Base or All).
 
 ![](/images/run2.png)
@@ -135,7 +135,7 @@ If this automation is to be triggered via another automation, ensure that the fo
 - Use Custom Template (Yes/No input)
 
 ### Via REST
-If its desired to trigger this application remotely via REST, all of the inputs can be passed as parameters. The required parameters are:
+If its desired to trigger this automation remotely via REST, all of the inputs can be passed as parameters. The required parameters are:
 - AppId to Scan
 - Scan Base Sheets Only (Yes/No input)
 - Generate Output App (Yes/No input)
@@ -155,18 +155,19 @@ The full path to the URL and X-Execution-Token along with example call templates
 - A Master Object is determined to be unused if it is not found on any scanned sheet.
 
 **Unused Master Dimensions/Master Measures**
-- Master Dimensions and Master Measures can be determined to be unused if they are not found on any scanned sheets, **_however_** this application does not scan for Master Dimension or Master Measure references, so this cannot be guaranteed.
+- Master Dimensions and Master Measures can be determined to be unused if they are not found on any scanned sheets, **_however_** this automation does not scan for Master Dimension or Master Measure references, so this cannot be guaranteed.
 
 ## Updates and Versioning
 The automation will automatically let you know (in its Output) when a new version of the template is available to be downloaded from this location. Updates are not forced, as the template is locked to a specific version (branch), so it is up to the user when a new template should be fetched.
 
 ## Current Scope and Limitations
 This automation does not currently support:
+- Scanning of QVW files. Only Qlik Sense apps are supported
 - Scanning Master Measure and Master Dimension references (e.g. [Total Sum of Sales] used in an expression)
 - Logging of parent objects (containers, filterpanes) that do not have matches in any child objects (e.g. a container that holds a text object with no matches -- the text object will still be logged with no hit, but the parent container will not)
 
 This automation is currently limited to:
-- Scanning a single application at a time
+- Scanning a single Qlik Sense application at a time
 
 ## Field and Variable Recognition
 ### Field Recognition
@@ -209,7 +210,7 @@ A _Wild_ match is captured when an _Exact_ match is not found, but that variable
 ### Nested Variable Referencing
 Variables are also scanned recursively for the presence of other variable names, and thereby associated to any fields that those nested variables contain. 
 
-For example, if an application contains the following trhee variables:
+For example, if a Qlik Sense application contains the following three variables:
 - Name: `vCost`, Definition: `=Sum(Cost)`
 - Name: `vSales`, Definition: `=Sum(Sales)`
 - Name: `vProfit`, Definition: `$(vSales) - $(vCost)`
